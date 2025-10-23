@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-enum HeightInputTypes { centimeters, meter, feetInches }
+enum HeightInputTypes { centimeters, meter, feetInches }                      //HeightInput
 
-enum WeightInputTypes { kg, lb }
+enum WeightInputTypes { kg, lb }                                                //WeightInput
 
 class BmiCalculatorPro extends StatefulWidget {
   const BmiCalculatorPro({super.key});
@@ -365,34 +365,44 @@ class _BmiCalculatorProState extends State<BmiCalculatorPro> {
             Divider(),
             if (_bmiResult.isNotEmpty)
               Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                margin: EdgeInsets.only(top: 15),
                 child: Padding(
                   padding: EdgeInsets.all(10),
-                  child: Column(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        "Your BMI Score ",
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      SizedBox(height: 12),
-                      Text(
-                        _bmiResult,
-                        style: Theme.of(context).textTheme.displayMedium
-                            ?.copyWith(fontWeight: FontWeight.bold),
-                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Your BMI Score ",
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                          SizedBox(height: 12),
+                          Text(
+                            _bmiResult,
+                            style: Theme.of(context).textTheme.displayMedium
+                                ?.copyWith(fontWeight: FontWeight.bold),
+                          ),
 
+                        ],
+                      ),
                       Chip(
-                        backgroundColor: categoryColor,
+
+                        backgroundColor: categoryColor.withOpacity(0.8),
                         label: Text(
                           _bmiCategory,
                           style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
+                            fontSize: 18,
                           ),
                         ),
 
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 8,
+                          horizontal: 18,
+                          vertical: 12,
                         ),
                       ),
                     ],
